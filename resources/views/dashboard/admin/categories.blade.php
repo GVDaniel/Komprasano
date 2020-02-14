@@ -35,8 +35,9 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($categories as $category)
                             <tr>
-                              <td><strong>Nombre</strong></td>
+                              <td><strong>{{ $category->name }}</strong></td>
                               <td>
                                   <span class="badge badge-pill badge-success">
                                       Activada
@@ -51,6 +52,7 @@
                                 </form>
                               </td>
                             </tr>
+                        @endforeach
                         </tbody>
                       </table>
                   </div>
