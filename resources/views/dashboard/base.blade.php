@@ -58,7 +58,6 @@
       gtag('config', 'UA-118965717-5');
     </script>
 
-    <link href="{{ asset('css/coreui-chartjs.css') }}" rel="stylesheet">
   </head>
 
 
@@ -86,7 +85,6 @@
     <!-- CoreUI and necessary plugins-->
     <script src="{{ asset('js/pace.min.js') }}"></script> 
     <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
-
     @yield('javascript')
 
 

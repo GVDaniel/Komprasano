@@ -24,11 +24,11 @@ mix.sass('resources/sass/style.scss', 'public/css');
 
 //************** SCRIPTS ****************** 
 // general scripts
-mix.copy('node_modules/axios/dist/axios.min.js', 'public/js'); 
-mix.copy('node_modules/pace-progress/pace.min.js', 'public/js');  
-mix.copy('node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js', 'public/js'); 
+mix.copy('node_modules/axios/dist/axios.min.js', 'public/js');
+mix.copy('node_modules/pace-progress/pace.min.js', 'public/js');
+mix.copy('node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js', 'public/js');
 // views scripts
-mix.copy('node_modules/chart.js/dist/Chart.min.js', 'public/js'); 
+mix.copy('node_modules/chart.js/dist/Chart.min.js', 'public/js');
 mix.copy('node_modules/@coreui/coreui-chartjs/dist/js/coreui-chartjs.bundle.js', 'public/js');
 
 mix.copy('node_modules/cropperjs/dist/cropper.js', 'public/js');

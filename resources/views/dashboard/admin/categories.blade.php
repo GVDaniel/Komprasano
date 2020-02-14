@@ -5,15 +5,19 @@
 <div class="container-fluid">
             <div class="fade-in">
               <div class="row">
+              <example-component></example-component>
+              <createCategory-component></createCategory-component>
                 <div class="col-sm-6">
                   <div class="card">
                     <div class="card-header"><strong>Crear Nueva Categoría</strong></div>
                     <div class="card-body">
+                    <form method="POST" action="{{ route('categories.store') }}">
+                    @csrf
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input class="form-control" id="name" type="text" placeholder="Nombre de la categoría">
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Nombre de la categoría">
                           </div>
                         </div>
                       </div>
@@ -22,6 +26,7 @@
                       <button class="btn btn-sm btn-primary" type="submit"> Crear</button>
                     </div>
                   </div>
+                  </form>
                 </div>
                 <!-- /.col-->
                 <div class="col-sm-6">

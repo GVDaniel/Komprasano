@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.categories',[]);
     }
 
     /**
@@ -36,7 +36,15 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name'             => 'required|min:1|max:64',
+        ]);
+        $user = auth()->user();
+        $category = new Categories();
+        $category->name     = $request->input('name');
+        $category->save();
+        $request->session()->flash('message', 'Categoria creada');
+        return redirect()->route('categories.index');
     }
 
     /**
