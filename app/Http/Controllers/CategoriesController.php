@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::all();
-      return view('dashboard.admin.categories',compact('categories'));
+      return view('dashboard.categories.categoriesList',compact('categories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('dashboard.admin.categories',[]);
+        return view('dashboard.categories.categoriesList',[]);
     }
 
     /**
@@ -43,7 +43,7 @@ class CategoriesController extends Controller
         $category = new Categories();
         $category->name     = $request->input('name');
         $category->save();
-        $request->session()->flash('message', 'Categoria creada');
+        $request->session()->flash('message', 'Categoría creada');
         return redirect()->route('categories.index');
     }
 
@@ -66,7 +66,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Categories::all();
+        $category = Categories::find($id);
+        return view('dashboard.categories.edit',compact('categories'), [ 'category' => $category ]);
     }
 
     /**
@@ -78,7 +80,16 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //var_dump('bazinga');
+        //die();
+        $validatedData = $request->validate([
+            'name'             => 'required|min:1|max:64',
+        ]);
+        $category = Categories::find($id);
+        $category->name     = $request->input('name');
+        $category->save();
+        $request->session()->flash('message', 'Categoría editada');
+        return redirect()->route('categories.index');
     }
 
     /**

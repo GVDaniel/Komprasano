@@ -49,11 +49,11 @@
                                   </span>
                               </td>
                               <td>
-                                <a href="" class="btn btn-block btn-primary">Edit</a>
+                                <a href="{{ url('/categories/' . $category->id . '/edit') }}" class="btn btn-block btn-primary">Editar</a>
                               </td>
                               <td>
                                 <form action="" method="POST">
-                                    <button class="btn btn-block btn-danger">Delete</button>
+                                    <button class="btn btn-block btn-danger">Eliminar</button>
                                 </form>
                               </td>
                             </tr>
