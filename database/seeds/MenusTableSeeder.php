@@ -131,27 +131,27 @@ class MenusTableSeeder extends Seeder
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
         $this->insertLink('guest,user,admin', 'Dashboard', '/', 'cil-speedometer');
         $this->beginDropdown('admin', 'Settings', 'cil-calculator');
-            $id = $this->insertLink('admin', 'Notes',                   '/notes');
+            $id = $this->insertLink('admin', 'Notas',                   '/notes');
             $id = $this->insertLink('admin', 'Categorías',                   '/categories');
             $id = $this->insertLink('admin', 'Ventas',                   '/sales');
-            $id = $this->insertLink('admin', 'Users',                   '/users');
-            $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
-            $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
-            $id = $this->insertLink('admin', 'Edit roles',              '/roles');
-            $id = $this->insertLink('admin', 'Media',                   '/media');
+            $id = $this->insertLink('admin', 'Usuarios',                   '/users');
+            $id = $this->insertLink('admin', 'Manú',               '/menu/menu');
+            $id = $this->insertLink('admin', 'Elementos Menú',      '/menu/element');
+            $id = $this->insertLink('admin', 'Roles Usuario',              '/roles');
+            $id = $this->insertLink('admin', 'Archivos',                   '/media');
             $id = $this->insertLink('admin', 'BREAD',                   '/bread');
         $this->endDropdown();
-        $this->insertLink('guest', 'Login', '/login', 'cil-account-logout');
-        $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
-        $this->insertTitle('user,admin', 'Theme');
-        $this->insertLink('user,admin', 'Colors', '/colors', 'cil-drop1');
-        $this->insertLink('user,admin', 'Typography', '/typography', 'cil-pencil');
+        $this->insertLink('guest', 'Iniciar Sesión', '/login', 'cil-account-logout');
+        $this->insertLink('guest', 'Registrar Cliente', '/register', 'cil-account-logout');
+        $this->insertTitle('user,admin', 'Tema');
+        $this->insertLink('user,admin', 'Colores', '/colors', 'cil-drop1');
+        $this->insertLink('user,admin', 'Tipografía', '/typography', 'cil-pencil');
         $this->beginDropdown('user,admin', 'Base', 'cil-puzzle');
             $this->insertLink('user,admin', 'Breadcrumb',    '/base/breadcrumb');
-            $this->insertLink('user,admin', 'Cards',         '/base/cards');
+            $this->insertLink('user,admin', 'Tarjetas',         '/base/cards');
             $this->insertLink('user,admin', 'Carousel',      '/base/carousel');
-            $this->insertLink('user,admin', 'Collapse',      '/base/collapse');
-            $this->insertLink('user,admin', 'Forms',         '/base/forms');
+            $this->insertLink('user,admin', 'Colapsadores',      '/base/collapse');
+            $this->insertLink('user,admin', 'Formularios',         '/base/forms');
             $this->insertLink('user,admin', 'Jumbotron',     '/base/jumbotron');
             $this->insertLink('user,admin', 'List group',    '/base/list-group');
             $this->insertLink('user,admin', 'Navs',          '/base/navs');
@@ -183,14 +183,12 @@ class MenusTableSeeder extends Seeder
         $this->endDropdown();
         $this->insertLink('user,admin', 'Widgets', '/widgets', 'cil-calculator');
         $this->insertTitle('user,admin', 'Extras');
-        $this->beginDropdown('user,admin', 'Pages', 'cil-star');
-            $this->insertLink('user,admin', 'Login',         '/login');
-            $this->insertLink('user,admin', 'Register',      '/register');
+        $this->beginDropdown('user,admin', 'Paginas', 'cil-star');
+            $this->insertLink('user,admin', 'Iniciar Sesión',         '/login');
+            $this->insertLink('user,admin', 'Registrar',      '/register');
             $this->insertLink('user,admin', 'Error 404',     '/404');
             $this->insertLink('user,admin', 'Error 500',     '/500');
         $this->endDropdown();
-        $this->insertLink('guest,user,admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
-        $this->insertLink('guest,user,admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
 
 
         /* Create top menu */
@@ -198,17 +196,17 @@ class MenusTableSeeder extends Seeder
             'name' => 'top menu'
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
-        $this->beginDropdown('guest,user,admin', 'Pages');
-        $id = $this->insertLink('guest,user,admin', 'Dashboard',    '/');
-        $id = $this->insertLink('user,admin', 'Notes',              '/notes');
-        $id = $this->insertLink('admin', 'Users',                   '/users');
+        $this->beginDropdown('guest,user,admin', 'Páginas');
+        $id = $this->insertLink('guest,user,admin', 'Tablero',    '/');
+        $id = $this->insertLink('user,admin', 'Notas',              '/notes');
+        $id = $this->insertLink('admin', 'Usuarios',                   '/users');
         $this->endDropdown();
-        $id = $this->beginDropdown('admin', 'Settings');
+        $id = $this->beginDropdown('admin', 'Ajustes');
 
-        $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
-        $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
-        $id = $this->insertLink('admin', 'Edit roles',              '/roles');
-        $id = $this->insertLink('admin', 'Media',                   '/media');
+        $id = $this->insertLink('admin', 'Menú',               '/menu/menu');
+        $id = $this->insertLink('admin', 'Elementos Menú',      '/menu/element');
+        $id = $this->insertLink('admin', 'Roles Usuario',              '/roles');
+        $id = $this->insertLink('admin', 'Archivos',                   '/media');
         $id = $this->insertLink('admin', 'BREAD',                   '/bread');
         $this->endDropdown();
 

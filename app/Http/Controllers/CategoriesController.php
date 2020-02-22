@@ -100,6 +100,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+        if($category){
+            $category->delete();
+        }
+        return redirect()->route('categories.index');
     }
 }

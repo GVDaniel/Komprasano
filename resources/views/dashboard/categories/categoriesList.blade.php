@@ -52,7 +52,9 @@
                                 <a href="{{ url('/categories/' . $category->id . '/edit') }}" class="btn btn-block btn-primary">Editar</a>
                               </td>
                               <td>
-                                <form action="" method="POST">
+                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                                  @method('DELETE')
+                                  @csrf
                                     <button class="btn btn-block btn-danger">Eliminar</button>
                                 </form>
                               </td>
