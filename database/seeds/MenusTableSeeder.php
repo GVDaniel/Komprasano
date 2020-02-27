@@ -129,8 +129,8 @@ class MenusTableSeeder extends Seeder
             'name' => 'sidebar menu'
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
-        $this->insertLink('guest,user,admin', 'Dashboard', '/', 'cil-speedometer');
-        $this->beginDropdown('admin', 'Settings', 'cil-calculator');
+        $this->insertLink('guest,user,admin', 'Tablero', '/', 'cil-speedometer');
+        $this->beginDropdown('admin', 'Herramientas', 'cil-calculator');
             $id = $this->insertLink('admin', 'Notas',                   '/notes');
             $id = $this->insertLink('admin', 'Categorías',                   '/categories');
             $id = $this->insertLink('admin', 'Ventas',                   '/sales');
