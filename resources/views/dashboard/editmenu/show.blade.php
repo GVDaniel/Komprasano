@@ -52,7 +52,7 @@
                                 </th>
                                 <td>
                                     <table class="table">
-                                        @foreach($langs as $lang)
+                                        @foreach($appMenus as $lang)
                                             <tr>
                                                 <td>
                                                     {{ $lang->name }}   

@@ -75,6 +75,7 @@ Route::group(['middleware' => ['get.menu']], function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('bread',  'BreadController');   //create BREAD (resource)
             Route::resource('/categories', 'CategoriesController');
+            Route::resource('/sub-categories', 'SubCategoriesController');
         Route::get('/sales', function(){   return view('dashboard.admin.sales'); });
         Route::resource('users',        'UsersController')->except( ['create', 'store'] );
         Route::resource('roles',        'RolesController');

@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\SubCategories;
 
-class CategoriesController extends Controller
+class SubCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_category)
     {
         $categories = Categories::all();
-      return view('dashboard.categories.categoriesList',compact('categories'));
+        $subCategory = SubCategories::find($id);
+      return view('dashboard.categories.sub-categories',compact('subCategories'));
     }
 
     /**
@@ -26,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.categoriesList',[]);
+        return view('dashboard.categories.subCategoriesList',[]);
     }
 
     /**
@@ -41,11 +40,14 @@ class CategoriesController extends Controller
             'name'             => 'required|min:1|max:64',
         ]);
         $user = auth()->user();
-        $category = new Categories();
-        $category->name     = $request->input('name');
-        $category->save();
+        $subCategory = new Categories();
+        $subCategory->icon     = $request->input('icon');
+        $subCategory->name     = $request->input('name');
+        $subCategory->description     = $request->input('description');
+        $subCategory->status     = $request->input('status');
+        $subCategory->save();
         $request->session()->flash('message', 'Categoría creada');
-        return redirect()->route('categories.index');
+        return redirect()->route('subCategories.index');
     }
 
     /**
@@ -56,11 +58,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        
-        $categories = Categories::all();
-        $subcategories = subCategories::where('id_category', $id)->get();
-        $category = Categories::find($id);
-        return view('dashboard.categories.categoryShow', [ 'category' => $category ] ,compact('categories') ,compact('subcategories'));
+        //
     }
 
     /**
@@ -71,9 +69,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $categories = Categories::all();
-        $category = Categories::find($id);
-        return view('dashboard.categories.edit',compact('categories'), [ 'category' => $category ]);
+        $subCategories = SubCategories::all();
+        $subCategory = SubCategories::find($id);
+        return view('dashboard.subCategories.edit',compact('subCategories'), [ 'subCategory' => $subCategory ]);
     }
 
     /**
@@ -90,11 +88,11 @@ class CategoriesController extends Controller
         $validatedData = $request->validate([
             'name'             => 'required|min:1|max:64',
         ]);
-        $category = Categories::find($id);
-        $category->name     = $request->input('name');
-        $category->save();
+        $subCategory = Categories::find($id);
+        $subCategory->name     = $request->input('name');
+        $subCategory->save();
         $request->session()->flash('message', 'Categoría editada');
-        return redirect()->route('categories.index');
+        return redirect()->route('subCategories.index');
     }
 
     /**

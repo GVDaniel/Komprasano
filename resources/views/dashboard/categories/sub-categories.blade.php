@@ -42,7 +42,7 @@
                         <tbody>
                         @foreach($categories as $category)
                             <tr>
-                              <td><a href="{{ url('/categories/' . $category->id) }}"><strong>{{ $category->name }}</strong></a></td>
+                              <td><strong>{{ $category->name }}</strong></td>
                               <td>
                                   <span class="badge badge-pill badge-success">
                                       Activada
